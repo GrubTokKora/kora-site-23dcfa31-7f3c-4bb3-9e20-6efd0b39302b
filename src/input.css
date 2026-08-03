@@ -1,3 +1,15 @@
 @import "tailwindcss";
 @source "../**/*.html";
-@source "../assets/**/*.js";
+@source "../js/**/*.js";
+
+@theme {
+  --color-brand-primary: #11425e;
+  --color-brand-secondary: #eee6dd;
+  --color-brand-accent: #5f9b40;
+  --color-brand-dark: #1a2f3a;
+  --color-brand-muted: #4a5c66;
+  --color-brand-soft: #f7f3ee;
+  --color-brand-border: #c9bbaa;
+  --font-heading: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+}
