@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# Prefer HTTPS site
 Sitemap: https://www.rztherapysolutions.com/sitemap.xml
