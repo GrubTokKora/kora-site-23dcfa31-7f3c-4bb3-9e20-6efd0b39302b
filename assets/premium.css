@@ -124,6 +124,10 @@ a{transition:color .22s ease,background-color .22s ease,border-color .22s ease,t
   max-width:900px;
 }
 .section-lead{font-size:1.12rem;line-height:1.75;max-width:44rem}
+.text-center .section-title,
+.text-center .section-lead{
+  margin-inline:auto;
+}
 .bg-soft{background:var(--rz-cream)}
 .bg-secondary{background:var(--rz-white)}
 .bg-primary{background:var(--rz-deep)}
@@ -251,24 +255,6 @@ a{transition:color .22s ease,background-color .22s ease,border-color .22s ease,t
 .footer-grid{max-width:76rem}
 .footer-heading{text-transform:none;letter-spacing:.01em;font-size:1rem}
 .site-footer__bottom{max-width:76rem}
-
-@media (min-width:900px){
-  body[data-page="home"] main > section:nth-of-type(2) .section-inner{
-    display:grid;
-    grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);
-    gap:6rem;
-    align-items:start;
-  }
-  body[data-page="home"] main > section:nth-of-type(2) .max-w-3xl{
-    max-width:none;
-    grid-column:2;
-  }
-  body[data-page="home"] main > section:nth-of-type(2)::before{
-    content:"A calmer path forward";
-    display:block;
-    position:absolute;
-  }
-}
 
 @media (max-width:767px){
   body{padding-top:4.6rem}

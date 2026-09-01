@@ -53,26 +53,26 @@ const HEADER_HTML = `
       </div>
     </div>
   </nav>
-
-  <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-white lg:hidden">
-    <div class="p-6">
-      <button id="close-menu-btn" class="absolute top-6 right-6 text-brand-primary" aria-label="Close menu" type="button">
-        ${ICON_CLOSE}
-      </button>
-      <div class="mt-16 space-y-1">
-        <a href="index.html" data-nav="home" class="block px-4 py-3 text-lg text-brand-dark">Home</a>
-        <a href="about-us.html" data-nav="about" class="block px-4 py-3 text-lg text-brand-dark">About Us</a>
-        <a href="information.html" data-nav="information" class="block px-4 py-3 text-lg text-brand-dark">Information</a>
-        <a href="who-we-help.html" data-nav="who-we-help" class="block px-4 py-3 text-lg text-brand-dark">Who We Help</a>
-        <a href="blog.html" data-nav="blog" class="block px-4 py-3 text-lg text-brand-dark">Blog</a>
-        <a href="contact.html" data-nav="contact" class="block px-4 py-3 text-lg text-brand-dark">Contact</a>
-        <a href="${PHONE_HREF}" class="block btn-accent text-center mt-6 px-6 py-3 font-semibold">${PHONE_DISPLAY}</a>
-        <a href="${EMAIL_HREF}" class="block text-center mt-3 px-6 py-2 text-brand-primary">${EMAIL_DISPLAY}</a>
-      </div>
-    </div>
-  </div>
-  <div id="mobile-overlay" class="mobile-overlay fixed inset-0 bg-black/40 hidden" aria-hidden="true"></div>
 </header>
+
+<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-80 h-full lg:hidden" aria-hidden="true">
+  <div class="mobile-menu__panel">
+    <button id="close-menu-btn" class="mobile-menu__close text-brand-primary" aria-label="Close menu" type="button">
+      ${ICON_CLOSE}
+    </button>
+    <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+      <a href="index.html" data-nav="home" class="mobile-menu__link">Home</a>
+      <a href="about-us.html" data-nav="about" class="mobile-menu__link">About Us</a>
+      <a href="information.html" data-nav="information" class="mobile-menu__link">Information</a>
+      <a href="who-we-help.html" data-nav="who-we-help" class="mobile-menu__link">Who We Help</a>
+      <a href="blog.html" data-nav="blog" class="mobile-menu__link">Blog</a>
+      <a href="contact.html" data-nav="contact" class="mobile-menu__link">Contact</a>
+      <a href="${PHONE_HREF}" class="btn-accent text-center mt-6 px-6 py-3 font-semibold">${PHONE_DISPLAY}</a>
+      <a href="${EMAIL_HREF}" class="block text-center mt-3 px-6 py-2 text-brand-primary">${EMAIL_DISPLAY}</a>
+    </nav>
+  </div>
+</div>
+<div id="mobile-overlay" class="mobile-overlay fixed inset-0 hidden" aria-hidden="true"></div>
 `;
 
 const FOOTER_HTML = `
