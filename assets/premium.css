@@ -283,3 +283,15 @@ a{transition:color .22s ease,background-color .22s ease,border-color .22s ease,t
   .section-padding{padding:4rem 1.15rem}
   .section-title{font-size:clamp(2.3rem,11vw,3.2rem)}
 }
+
+.hero-trust{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.65rem 1.35rem;
+  margin-top:2rem;
+  color:rgba(255,255,255,.82);
+  font-size:.82rem;
+}
+.hero-trust span{display:inline-flex;align-items:center;gap:.5rem}
+.hero-trust span::before{content:"";width:5px;height:5px;border-radius:50%;background:#c9d8d0}
+@media(max-width:767px){.hero-trust{font-size:.78rem;gap:.55rem 1rem}}
