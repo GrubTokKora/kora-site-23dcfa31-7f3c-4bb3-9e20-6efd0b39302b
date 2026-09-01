@@ -14,13 +14,21 @@ function initMobileMenu() {
 
   function openMenu() {
     menu.classList.add('active');
-    if (overlay) overlay.classList.remove('hidden');
+    menu.setAttribute('aria-hidden', 'false');
+    if (overlay) {
+      overlay.classList.remove('hidden');
+      overlay.setAttribute('aria-hidden', 'false');
+    }
     document.body.style.overflow = 'hidden';
   }
 
   function closeMenu() {
     menu.classList.remove('active');
-    if (overlay) overlay.classList.add('hidden');
+    menu.setAttribute('aria-hidden', 'true');
+    if (overlay) {
+      overlay.classList.add('hidden');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
     document.body.style.overflow = '';
   }
 

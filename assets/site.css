@@ -239,7 +239,7 @@ img {
   padding: 0.65rem 1.25rem;
 }
 .mobile-menu {
-  z-index: 60;
+  z-index: 100;
   transform: translateX(100%);
   box-shadow: none;
   visibility: hidden;
@@ -248,14 +248,47 @@ img {
               box-shadow 0.35s ease,
               visibility 0.35s ease;
 }
+.mobile-menu__panel {
+  position: relative;
+  height: 100%;
+  background: #fff;
+  padding: 1.5rem;
+  box-shadow: -12px 0 40px rgba(17, 66, 94, 0.18);
+}
+.mobile-menu__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0.25rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.mobile-menu__nav {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.mobile-menu__link {
+  display: block;
+  padding: 0.75rem 1rem;
+  font-size: 1.125rem;
+  color: var(--color-brand-dark);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.mobile-menu__link:hover {
+  color: var(--color-brand-primary);
+}
 .mobile-menu.active {
   transform: translateX(0);
   visibility: visible;
   pointer-events: auto;
-  box-shadow: -12px 0 40px rgba(17, 66, 94, 0.18);
 }
 .mobile-overlay {
-  z-index: 55;
+  z-index: 95;
+  background: rgba(0, 0, 0, 0.4);
   transition: opacity 0.3s ease;
 }
 
