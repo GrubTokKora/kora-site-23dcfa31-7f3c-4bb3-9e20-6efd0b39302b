@@ -142,7 +142,17 @@ function applyActiveNav(page) {
   });
 }
 
+function ensurePremiumStyles() {
+  if (document.querySelector('link[data-rz-premium]')) return;
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'assets/premium.css';
+  link.dataset.rzPremium = 'true';
+  document.head.appendChild(link);
+}
+
 function renderPartials() {
+  ensurePremiumStyles();
   const headerMount = document.getElementById('site-header');
   const footerMount = document.getElementById('site-footer');
 
