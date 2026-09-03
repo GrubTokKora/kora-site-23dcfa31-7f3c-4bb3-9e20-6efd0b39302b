@@ -565,16 +565,4 @@ function boot() {
   initAccordion();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  if (document.getElementById('site-header') && !document.querySelector('.site-header')) {
-    document.addEventListener('site:partials-loaded', boot, { once: true });
-  } else {
-    boot();
-  }
-});
-
-document.addEventListener('site:partials-loaded', () => {
-  initMobileMenu();
-  initNavbarScroll();
-  initHeaderLayout();
-});
+document.addEventListener('DOMContentLoaded', boot);
