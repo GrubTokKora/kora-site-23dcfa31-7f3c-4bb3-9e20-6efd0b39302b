@@ -28,6 +28,209 @@
 <meta content="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/23dcfa31-7f3c-4bb3-9e20-6efd0b39302b/de8c94d8-887e-4625-825f-ec262dbc28df/1785749225_0rnelf.png" name="twitter:image"/>
 <link href="assets/styles.css" rel="stylesheet"/>
 <link href="assets/site.css" rel="stylesheet"/>
+<style>
+  /* ── Contact page utility classes ── */
+  .bg-secondary {
+    background-color: #f0f5f2;
+  }
+  .bg-soft {
+    background-color: #f7faf8;
+  }
+  .btn-primary {
+    display: inline-block;
+    background-color: #577b70;
+    color: #ffffff;
+    border-radius: 4px;
+    border: 2px solid #577b70;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  .btn-primary:hover {
+    background-color: #11425e;
+    border-color: #11425e;
+  }
+  .btn-accent {
+    display: inline-block;
+    background-color: #9fd07a;
+    color: #11425e;
+    border-radius: 4px;
+    border: 2px solid #9fd07a;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  .btn-accent:hover {
+    background-color: #8bbf68;
+    border-color: #8bbf68;
+  }
+  .btn-outline {
+    display: inline-block;
+    background-color: transparent;
+    color: #577b70;
+    border-radius: 4px;
+    border: 2px solid #577b70;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover {
+    background-color: #577b70;
+    color: #ffffff;
+  }
+  .fade-in {
+    animation: fadeIn 0.6s ease both;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .form-grid--2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  @media (max-width: 600px) {
+    .form-grid--2 {
+      grid-template-columns: 1fr;
+    }
+  }
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .form-field label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #11425e;
+  }
+  .form-field input,
+  .form-field textarea {
+    padding: 0.65rem 0.85rem;
+    border: 1px solid #c4d4cc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #333;
+    background: #ffffff;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+  }
+  .form-field input:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-color: #577b70;
+  }
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-top: 0.35rem;
+  }
+  .checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #596965;
+    cursor: pointer;
+  }
+  .form-status {
+    font-size: 0.9rem;
+    min-height: 1.4em;
+    color: #577b70;
+  }
+  .form-status.error {
+    color: #c0392b;
+  }
+
+  /* ── Missing utility classes ── */
+  .page-hero {
+    background-color: #11425e;
+    color: #ffffff;
+    padding: 4rem 1.5rem 3rem;
+    text-align: center;
+  }
+  .page-hero h1 {
+    color: #ffffff;
+    margin: 0.5rem 0;
+  }
+  .page-hero p {
+    color: #d0e4ef;
+    max-width: 42rem;
+    margin: 0.75rem auto 0;
+  }
+
+  .section-inner {
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .section-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #577b70;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #11425e;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .prose-rz {
+    color: #596965;
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  .map-embed {
+    position: relative;
+    width: 100%;
+    padding-bottom: 45%;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #e8f0ec;
+  }
+  .map-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .g-recaptcha {
+    min-height: 78px;
+    margin-top: 0.25rem;
+  }
+
+  .py-3\.5 {
+    padding-top: 0.875rem;
+    padding-bottom: 0.875rem;
+  }
+</style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -66,7 +269,7 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap"></noscript>
 <!-- KORA_GOOGLE_FONTS_END -->
 
-<!-- KORA_FAVICON_START -->
+</link></link><!-- KORA_FAVICON_START -->
 <link href="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/23dcfa31-7f3c-4bb3-9e20-6efd0b39302b/de8c94d8-887e-4625-825f-ec262dbc28df/1785749225_0rnelf.png" rel="icon" type="image/png"/>
 <link href="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/23dcfa31-7f3c-4bb3-9e20-6efd0b39302b/de8c94d8-887e-4625-825f-ec262dbc28df/1785749225_0rnelf.png" rel="apple-touch-icon"/>
 <!-- KORA_FAVICON_END -->
@@ -102,6 +305,39 @@
 <div class="form-field">
 <label for="email">Email *</label>
 <input autocomplete="email" id="email" name="email" required="" type="email"/>
+</div>
+<div class="form-field">
+<label for="phone">Phone number</label>
+<input autocomplete="tel" id="phone" name="phone" placeholder="(860) 000-0000" type="tel"/>
+</div>
+<div class="form-field">
+<label>What counseling are you interested in? *</label>
+<div class="checkbox-group" style="display:flex;flex-direction:column;gap:.65rem;margin-top:.35rem;">
+<label class="checkbox-option" style="display:flex;align-items:center;gap:.6rem;font-size:1rem;font-weight:400;color:#596965;cursor:pointer;">
+<input name="counseling_interest" style="width:1.1rem;height:1.1rem;accent-color:#577b70;flex-shrink:0;cursor:pointer;" type="checkbox" value="Children/Teen Counseling"/>
+Children/Teen Counseling
+</label>
+<label class="checkbox-option" style="display:flex;align-items:center;gap:.6rem;font-size:1rem;font-weight:400;color:#596965;cursor:pointer;">
+<input name="counseling_interest" style="width:1.1rem;height:1.1rem;accent-color:#577b70;flex-shrink:0;cursor:pointer;" type="checkbox" value="Adult Individual Counseling"/>
+Adult Individual Counseling
+</label>
+<label class="checkbox-option" style="display:flex;align-items:center;gap:.6rem;font-size:1rem;font-weight:400;color:#596965;cursor:pointer;">
+<input name="counseling_interest" style="width:1.1rem;height:1.1rem;accent-color:#577b70;flex-shrink:0;cursor:pointer;" type="checkbox" value="Pregnancy/Postpartum Counseling &amp; Women's Issues"/>
+Pregnancy/Postpartum Counseling &amp; Women's Issues
+</label>
+<label class="checkbox-option" style="display:flex;align-items:center;gap:.6rem;font-size:1rem;font-weight:400;color:#596965;cursor:pointer;">
+<input name="counseling_interest" style="width:1.1rem;height:1.1rem;accent-color:#577b70;flex-shrink:0;cursor:pointer;" type="checkbox" value="Parent Coaching"/>
+Parent Coaching
+</label>
+<label class="checkbox-option" style="display:flex;align-items:center;gap:.6rem;font-size:1rem;font-weight:400;color:#596965;cursor:pointer;">
+<input name="counseling_interest" style="width:1.1rem;height:1.1rem;accent-color:#577b70;flex-shrink:0;cursor:pointer;" type="checkbox" value="In-Person Therapy"/>
+In-Person Therapy
+</label>
+<label class="checkbox-option" style="display:flex;align-items:center;gap:.6rem;font-size:1rem;font-weight:400;color:#596965;cursor:pointer;">
+<input name="counseling_interest" style="width:1.1rem;height:1.1rem;accent-color:#577b70;flex-shrink:0;cursor:pointer;" type="checkbox" value="Telehealth"/>
+Telehealth
+</label>
+</div>
 </div>
 <div class="form-field">
 <label for="message">Comment *</label>
