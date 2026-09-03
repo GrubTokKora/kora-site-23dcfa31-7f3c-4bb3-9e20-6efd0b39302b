@@ -1,6 +1,6 @@
 # RZ Therapy Solutions
 
-> RZ Therapy Solutions, located at 79A Norwich Ave, Colchester, CT, offers therapy services designed to meet clients' individual needs. Their tagline emphasizes a personalized approach to mental health support.
+> RZ Therapy Solutions offers therapy services with a focus on meeting clients' individual needs. Their tagline is "Therapy That Meets You Where You're At."
 
 ## Location & Contact
 - Address: 79A Norwich Ave, Colchester, CT 06415, United States
@@ -18,4 +18,4 @@
 
 ## Action Links
 - Reserve a Table: https://www.rztherapysolutions.com/contact
-- Call Us: tel:+18602666358
+- Book a Consultation: https://clientapi.askkora.ai/widget/bookings/book-a-consultation-rztherapy
