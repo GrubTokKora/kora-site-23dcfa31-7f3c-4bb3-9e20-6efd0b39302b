@@ -257,8 +257,8 @@ a{transition:color .22s ease,background-color .22s ease,border-color .22s ease,t
 .site-footer__bottom{max-width:76rem}
 
 @media (max-width:767px){
-  body{padding-top:4.6rem}
-  .top-bar{display:none!important}
+  body{padding-top:7rem}
+  .top-bar{font-size:.7rem}
   .navbar-inner{height:4.6rem}
   .header-logo{height:2.55rem;max-width:180px}
   .hero{min-height:72svh;align-items:flex-end}
