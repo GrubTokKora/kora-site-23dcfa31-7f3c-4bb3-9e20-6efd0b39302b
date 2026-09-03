@@ -158,16 +158,23 @@ img {
   color: rgba(255, 255, 255, 0.92);
   font-size: 0.8125rem;
   letter-spacing: 0.02em;
-  max-height: 3rem;
-  overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.35s ease, opacity 0.3s ease;
 }
-.site-header.is-scrolled .top-bar {
-  max-height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  opacity: 0;
-  border: 0;
+.top-bar__sep {
+  opacity: 0.5;
+}
+@media (min-width: 768px) {
+  .top-bar {
+    max-height: 3rem;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease, opacity 0.3s ease;
+  }
+  .site-header.is-scrolled .top-bar {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
+    border: 0;
+  }
 }
 .top-bar a {
   color: inherit;
