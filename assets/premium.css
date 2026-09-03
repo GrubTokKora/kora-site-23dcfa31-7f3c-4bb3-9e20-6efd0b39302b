@@ -38,6 +38,27 @@ a{transition:color .22s ease,background-color .22s ease,border-color .22s ease,t
   color:rgba(255,255,255,.88);
   font-size:.75rem;
   letter-spacing:.035em;
+  display:block!important;
+  visibility:visible!important;
+}
+.top-bar .max-w-7xl{
+  gap-x:2.5rem;
+}
+.top-bar__sep{
+  padding-inline:0.5rem;
+}
+@media(max-width:767px){
+  .top-bar{
+    display:block!important;
+    visibility:visible!important;
+  }
+  .top-bar .max-w-7xl{
+    flex-direction:column;
+    gap:.4rem;
+  }
+  .top-bar__sep{
+    display:none;
+  }
 }
 .navbar{background:transparent;border-bottom:1px solid var(--rz-line)}
 .navbar-inner{height:5rem}
