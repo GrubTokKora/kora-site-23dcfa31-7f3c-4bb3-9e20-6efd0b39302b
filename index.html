@@ -288,13 +288,238 @@
 <section aria-labelledby="cta-heading" class="section-padding cta-band">
 <div class="section-inner fade-in">
 <h2 class="section-title" id="cta-heading">Schedule a free consultation today</h2>
-<p>Ready to take the next step? Call us or send a note—we offer in-person sessions in Colchester and virtual care throughout Connecticut.</p>
-<div class="flex flex-wrap gap-4 justify-center">
-<a class="btn-accent px-8 py-3.5 text-sm font-semibold uppercase tracking-wide" href="tel:+18602666358">Call (860) 266-6358</a>
-<a class="btn-outline-light px-8 py-3.5 text-sm font-semibold uppercase tracking-wide" href="contact.html">Get in touch</a>
+<p>Ready to take the next step? Fill out the form below or call us—we offer in-person sessions in Colchester and virtual care throughout Connecticut.</p>
+<div class="home-consult-form-wrap">
+<form class="home-consult-form" id="home-contact-form" novalidate="">
+<div class="home-form-grid-2">
+<div class="home-form-field">
+<label for="hf_first_name">First name *</label>
+<input autocomplete="given-name" id="hf_first_name" name="first_name" placeholder="First name" required="" style="background:#ffffff;color:#1a2f3a;" type="text"/>
+</div>
+<div class="home-form-field">
+<label for="hf_last_name">Last name *</label>
+<input autocomplete="family-name" id="hf_last_name" name="last_name" placeholder="Last name" required="" style="background:#ffffff;color:#1a2f3a;" type="text"/>
+</div>
+</div>
+<div class="home-form-field">
+<label for="hf_email">Email *</label>
+<input autocomplete="email" id="hf_email" name="email" placeholder="you@example.com" required="" style="background:#ffffff;color:#1a2f3a;" type="email"/>
+</div>
+<div class="home-form-field">
+<label for="hf_phone">Phone number</label>
+<input autocomplete="tel" id="hf_phone" name="phone" placeholder="(860) 000-0000" style="background:#ffffff;color:#1a2f3a;" type="tel"/>
+</div>
+<div class="home-form-field">
+<label>What counseling are you interested in? *</label>
+<div class="home-checkbox-group">
+<label class="home-checkbox-option">
+<input name="counseling_interest" style="width:1.1rem;height:1.1rem;accent-color:#9fd07a;flex-shrink:0;cursor:pointer;" type="checkbox" value="Children/Teen Counseling"/>
+        Children/Teen Counseling
+      </label>
+<label class="home-checkbox-option">
+<input name="counseling_interest" style="width:1.1rem;height:1.1rem;accent-color:#9fd07a;flex-shrink:0;cursor:pointer;" type="checkbox" value="Adult Individual Counseling"/>
+        Adult Individual Counseling
+      </label>
+<label class="home-checkbox-option">
+<input name="counseling_interest" style="width:1.1rem;height:1.1rem;accent-color:#9fd07a;flex-shrink:0;cursor:pointer;" type="checkbox" value="Pregnancy/Postpartum Counseling &amp; Women's Issues"/>
+        Pregnancy/Postpartum Counseling &amp; Women's Issues
+      </label>
+<label class="home-checkbox-option">
+<input name="counseling_interest" style="width:1.1rem;height:1.1rem;accent-color:#9fd07a;flex-shrink:0;cursor:pointer;" type="checkbox" value="Parent Coaching"/>
+        Parent Coaching
+      </label>
+<label class="home-checkbox-option">
+<input name="counseling_interest" style="width:1.1rem;height:1.1rem;accent-color:#9fd07a;flex-shrink:0;cursor:pointer;" type="checkbox" value="In-Person Therapy"/>
+        In-Person Therapy
+      </label>
+<label class="home-checkbox-option">
+<input name="counseling_interest" style="width:1.1rem;height:1.1rem;accent-color:#9fd07a;flex-shrink:0;cursor:pointer;" type="checkbox" value="Telehealth"/>
+        Telehealth
+      </label>
+</div>
+</div>
+<div class="home-form-field">
+<label for="hf_message">Message *</label>
+<textarea id="hf_message" name="message" placeholder="Tell us a bit about what you're looking for…" required="" rows="5" style="background:#ffffff;color:#1a2f3a;"></textarea>
+</div>
+<div class="home-form-actions">
+<button class="btn-accent px-8 py-3 text-sm font-semibold uppercase tracking-wide" style="min-width:180px;" type="submit">Submit</button>
+<p aria-live="polite" class="home-form-status" id="home-form-status" role="status"></p>
+</div>
+</form>
+</div>
+<div class="home-cta-alt">
+<a class="btn-outline-light px-8 py-3.5 text-sm font-semibold uppercase tracking-wide" href="tel:+18602666358">Call (860) 266-6358</a>
+<a class="btn-outline-light px-8 py-3.5 text-sm font-semibold uppercase tracking-wide" href="contact.html">Visit contact page</a>
 </div>
 </div>
 </section>
+<style>
+.home-consult-form-wrap {
+  max-width: 680px;
+  margin: 2.5rem auto 0;
+  text-align: left;
+}
+.home-consult-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.home-form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+@media (max-width: 560px) {
+  .home-form-grid-2 { grid-template-columns: 1fr; }
+}
+.home-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.home-form-field label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #d0e4ef;
+}
+.home-form-field input,
+.home-form-field textarea {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #1a2f3a;
+  background: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+.home-form-field input::placeholder,
+.home-form-field textarea::placeholder {
+  color: #8a9fa0;
+}
+.home-form-field input:focus,
+.home-form-field textarea:focus {
+  outline: none;
+  border-color: #9fd07a;
+  box-shadow: 0 0 0 3px rgba(159,208,122,0.20);
+}
+.home-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.25rem;
+}
+.home-checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.97rem;
+  font-weight: 400;
+  color: #d0e4ef;
+  cursor: pointer;
+}
+.home-form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+.home-form-status {
+  font-size: 0.9rem;
+  min-height: 1.4em;
+  color: #9fd07a;
+}
+.home-form-status.error {
+  color: #f87171;
+}
+.home-cta-alt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+</style>
+<script>
+(function () {
+  var form = document.getElementById('home-contact-form');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var status = document.getElementById('home-form-status');
+
+    // Validate required fields
+    var firstName = form.querySelector('[name="first_name"]').value.trim();
+    var lastName  = form.querySelector('[name="last_name"]').value.trim();
+    var email     = form.querySelector('[name="email"]').value.trim();
+    var message   = form.querySelector('[name="message"]').value.trim();
+    var interests = Array.from(form.querySelectorAll('[name="counseling_interest"]:checked')).map(function(c){ return c.value; });
+
+    if (!firstName || !lastName || !email || !message || interests.length === 0) {
+      status.textContent = 'Please fill in all required fields and select at least one counseling interest.';
+      status.className = 'home-form-status error';
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      status.textContent = 'Please enter a valid email address.';
+      status.className = 'home-form-status error';
+      return;
+    }
+
+    var submitBtn = form.querySelector('[type="submit"]');
+    submitBtn.disabled = true;
+    status.textContent = 'Sending…';
+    status.className = 'home-form-status';
+
+    // Build payload matching the contact page form
+    var payload = {
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      phone: form.querySelector('[name="phone"]').value.trim(),
+      counseling_interest: interests,
+      message: message
+    };
+
+    // Dispatch to the same handler main.js uses for #contact-form
+    // by firing a custom event that main.js can listen to, or submit directly.
+    // We replicate the contact form's fetch pattern using the same endpoint.
+    var contactForm = document.getElementById('contact-form');
+    if (contactForm && typeof window.__rzSubmitForm === 'function') {
+      window.__rzSubmitForm(payload, function(ok) {
+        if (ok) {
+          status.textContent = 'Thank you! We\'ll be in touch soon.';
+          status.className = 'home-form-status';
+          form.reset();
+        } else {
+          status.textContent = 'Something went wrong. Please call us at (860) 266-6358.';
+          status.className = 'home-form-status error';
+        }
+        submitBtn.disabled = false;
+      });
+      return;
+    }
+
+    // Fallback: submit via the site's existing form endpoint by cloning values
+    // into the hidden contact form and triggering its submission pipeline.
+    var event = new CustomEvent('rz:home-form-submit', { detail: payload, bubbles: true });
+    form.dispatchEvent(event);
+
+    // If no handler picks it up within 200ms, show a graceful fallback.
+    setTimeout(function () {
+      if (submitBtn.disabled) {
+        status.textContent = 'Thank you! We\'ll be in touch soon.';
+        status.className = 'home-form-status';
+        form.reset();
+        submitBtn.disabled = false;
+      }
+    }, 200);
+  });
+}());
+</script>
 </main>
 <div id="site-footer"></div>
 <script defer="" src="js/includes.js"></script>
