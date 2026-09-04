@@ -409,6 +409,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <label for="hf_message">Message *</label>
 <textarea id="hf_message" name="message" placeholder="Tell us a bit about what you're looking for…" required="" rows="5" style="background:#ffffff;color:#1a2f3a;"></textarea>
 </div>
+<div class="g-recaptcha-scale"><div class="g-recaptcha"></div></div>
 <div class="home-form-actions">
 <button class="btn-accent px-8 py-3 text-sm font-semibold uppercase tracking-wide" style="min-width:180px;" type="submit">Submit</button>
 <p aria-live="polite" class="home-form-status" id="home-form-status" role="status"></p>
@@ -514,11 +515,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 (function () {
   var form = document.getElementById('home-contact-form');
   if (!form) return;
+
+  var config = window.KORA_SITE_CONFIG || {};
+  var apiBaseUrl = (config.apiBaseUrl || '').replace(/\/+$/, '');
+  var businessId = config.businessId || '';
+  var siteKey = (config.recaptchaSiteKey || '').trim();
+
+  // Set up reCAPTCHA
+  var recaptchaEl = form.querySelector('.g-recaptcha');
+  if (recaptchaEl && siteKey) {
+    recaptchaEl.setAttribute('data-sitekey', siteKey);
+    form.addEventListener('focusin', function () {
+      if (typeof window.grecaptcha !== 'undefined') return;
+      var s = document.createElement('script');
+      s.src = 'https://www.google.com/recaptcha/api.js';
+      s.async = true; s.defer = true;
+      document.head.appendChild(s);
+    }, { once: true });
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var status = document.getElementById('home-form-status');
+    var submitBtn = form.querySelector('[type="submit"]');
 
-    // Validate required fields
     var firstName = form.querySelector('[name="first_name"]').value.trim();
     var lastName  = form.querySelector('[name="last_name"]').value.trim();
     var email     = form.querySelector('[name="email"]').value.trim();
@@ -530,60 +550,65 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       status.className = 'home-form-status error';
       return;
     }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      status.textContent = 'Please enter a valid email address.';
-      status.className = 'home-form-status error';
-      return;
+
+    var captchaToken = '';
+    if (recaptchaEl && siteKey) {
+      if (typeof window.grecaptcha === 'undefined') {
+        status.textContent = 'Security check is still loading. Please try again in a moment.';
+        status.className = 'home-form-status error';
+        return;
+      }
+      captchaToken = window.grecaptcha.getResponse() || '';
+      if (!captchaToken) {
+        status.textContent = 'Please complete the security check.';
+        status.className = 'home-form-status error';
+        return;
+      }
     }
 
-    var submitBtn = form.querySelector('[type="submit"]');
     submitBtn.disabled = true;
     status.textContent = 'Sending…';
     status.className = 'home-form-status';
 
-    // Build payload matching the contact page form
-    var payload = {
-      first_name: firstName,
-      last_name: lastName,
-      email: email,
-      phone: form.querySelector('[name="phone"]').value.trim(),
-      counseling_interest: interests,
-      message: message
-    };
-
-    // Dispatch to the same handler main.js uses for #contact-form
-    // by firing a custom event that main.js can listen to, or submit directly.
-    // We replicate the contact form's fetch pattern using the same endpoint.
-    var contactForm = document.getElementById('contact-form');
-    if (contactForm && typeof window.__rzSubmitForm === 'function') {
-      window.__rzSubmitForm(payload, function(ok) {
-        if (ok) {
-          status.textContent = 'Thank you! We\'ll be in touch soon.';
-          status.className = 'home-form-status';
-          form.reset();
-        } else {
-          status.textContent = 'Something went wrong. Please call us at (860) 266-6358.';
-          status.className = 'home-form-status error';
-        }
-        submitBtn.disabled = false;
-      });
-      return;
-    }
-
-    // Fallback: submit via the site's existing form endpoint by cloning values
-    // into the hidden contact form and triggering its submission pipeline.
-    var event = new CustomEvent('rz:home-form-submit', { detail: payload, bubbles: true });
-    form.dispatchEvent(event);
-
-    // If no handler picks it up within 200ms, show a graceful fallback.
-    setTimeout(function () {
-      if (submitBtn.disabled) {
-        status.textContent = 'Thank you! We\'ll be in touch soon.';
+    fetch(apiBaseUrl + '/api/v1/public/forms/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        business_id: businessId,
+        form_type: 'contact',
+        form_data: {
+          name: firstName + ' ' + lastName,
+          first_name: firstName,
+          last_name: lastName,
+          email: email,
+          phone: form.querySelector('[name="phone"]').value.trim(),
+          counseling_interest: interests,
+          message: message
+        },
+        submitter_email: email,
+        captcha_token: captchaToken
+      })
+    })
+    .then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
+    .then(function (result) {
+      if (result.ok) {
+        status.textContent = result.data.message || 'Thank you! We\'ll be in touch soon.';
         status.className = 'home-form-status';
         form.reset();
-        submitBtn.disabled = false;
+      } else {
+        var msg = (result.data && result.data.detail) || 'Something went wrong. Please call us at (860) 266-6358.';
+        status.textContent = typeof msg === 'string' ? msg : 'Something went wrong. Please call us at (860) 266-6358.';
+        status.className = 'home-form-status error';
       }
-    }, 200);
+      if (typeof window.grecaptcha !== 'undefined' && recaptchaEl) window.grecaptcha.reset();
+      submitBtn.disabled = false;
+    })
+    .catch(function () {
+      status.textContent = 'Something went wrong. Please call us at (860) 266-6358.';
+      status.className = 'home-form-status error';
+      if (typeof window.grecaptcha !== 'undefined' && recaptchaEl) window.grecaptcha.reset();
+      submitBtn.disabled = false;
+    });
   });
 }());
 </script>
