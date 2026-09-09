@@ -300,12 +300,22 @@ function initContactForm() {
     const revealRecaptcha = () => {
       form.classList.add('is-focused');
       if (recaptchaContainer) {
+        recaptchaContainer.classList.add('is-visible');
         recaptchaContainer.style.display = 'block';
       }
+      try {
+        sessionStorage.setItem('rz_recaptcha_revealed', 'true');
+      } catch (_) {}
       if (recaptchaEl) {
         scaleRecaptcha(recaptchaEl);
       }
     };
+
+    try {
+      if (sessionStorage.getItem('rz_recaptcha_revealed') === 'true') {
+        revealRecaptcha();
+      }
+    } catch (_) {}
 
     if (recaptchaContainer) {
       form.addEventListener('focusin', (e) => {
@@ -318,6 +328,11 @@ function initContactForm() {
     if (recaptchaEl && recaptchaSiteKey) {
       recaptchaEl.setAttribute('data-sitekey', recaptchaSiteKey);
       makeRecaptchaResponsive(recaptchaEl);
+      try {
+        if (sessionStorage.getItem('rz_recaptcha_revealed') === 'true') {
+          ensureRecaptchaScript(recaptchaSiteKey).catch(() => {});
+        }
+      } catch (_) {}
       form.addEventListener(
         'focusin',
         () => {
