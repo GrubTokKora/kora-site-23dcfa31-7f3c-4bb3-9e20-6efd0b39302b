@@ -1081,6 +1081,11 @@ body.lightbox-open { overflow: hidden; }
     transition: none;
     will-change: auto;
   }
+  .faq-item__panel,
+  .faq-item__icon::before,
+  .faq-item__icon::after {
+    transition: none !important;
+  }
 }
 
 /* ── Page hero (inner pages) ── */
@@ -1349,7 +1354,7 @@ body.lightbox-open { overflow: hidden; }
   content: "";
   position: absolute;
   background: var(--color-brand-accent);
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
 }
 .faq-item__icon::before {
   top: 50%;
@@ -1371,6 +1376,8 @@ body.lightbox-open { overflow: hidden; }
 }
 .faq-item__panel {
   overflow: hidden;
+  transition: height 300ms ease-in-out;
+  will-change: height;
 }
 .faq-item__content {
   padding: 0 1.25rem 1.35rem;
