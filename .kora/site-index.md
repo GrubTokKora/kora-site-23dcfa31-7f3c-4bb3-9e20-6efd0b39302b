@@ -11,8 +11,8 @@ sections:
 - `#approach-heading` "How we support children and families" — the four principles: Trauma-informed, Neurodiversity-affirming, Person-centered, Developmentally Adaptive
 - `#help-heading` "Challenges we help children & teens with" — the presenting concerns treated: Anxiety & worry, ADHD, Emotion regulation, Trauma & adverse experiences, School stress & avoidance, Self-esteem & identity, Pregnancy, postpartum & parenting
 - `#gallery` "A calm space for real conversations" — photographs of the practice rooms, with its heading in `#gallery-heading`
-- `#team-preview-heading` "Meet the team" — the four clinicians: Rebecca Ziskind, Ashlee Cannon, Madison Marcavage, Mackenzie Vigil
-- `#testimonials` "What families & clients say" — real Google customer reviews from Sarah Simmons, Wisdom Within Counseling, Ruby Baker, and Chloe Mitchell, with heading in `#testimonials-heading`
+- `#team-heading` "Meet the team" — the four clinicians: Rebecca Ziskind, Ashlee Cannon, Madison Marcavage, Mackenzie Vigil
+- `#testimonials` "What families & clients say" — real Google customer reviews from Sarah Simmons, Wisdom Within Counseling, Ruby Baker, and Chloe Mitchell, with heading in `#testimonials-heading` (each card uses class `review testimonial-card` for scan detection)
 - `#faq-heading` "Frequently Asked Questions" — questions covering who we work with, issues treated, telehealth vs in-person, location, hours, and contact details
 - `#cta-heading` "Schedule a free consultation today" — the closing call to action
 - `#home-contact-form` — the consultation form, with `#hf_first_name`, `#hf_last_name`, `#hf_email`, `#hf_phone` and `#hf_message`

@@ -113,6 +113,67 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "medicalSpecialty": [
     "Counseling",
     "Psychotherapy"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "4",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Sarah Simmons"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "Becky and her team are exceptional. They go above and beyond to support the children and families they work with, bringing both deep clinical expertise and a warm, patient approach to their sessions. I highly recommend this practice."
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Organization",
+        "name": "Wisdom Within Counseling"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "Becky Ziskind is an incredible therapist in Colchester, Connecticut who helps children in elementary school process big emotions and build self-esteem. She also excels at helping teenagers who are struggling with depression and anxiety, and need a safe space outside of school and home. She also loves helping young adults who are dealing with coming of age issues, college application, stress, dating, relationships, break ups, and needing self-confidence. If you are looking for a counselor with empathy, compassion, and a great sense of humor, look no further."
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Ruby Baker"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "Rebecca has helped me through the worst times of my life. She's truly a life saver. The most non-judge mental, empathetic, and down to earth therapist I've ever met. I highly recommend her to anyone who is struggling."
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Chloe Mitchell"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "Rebecca Ziskind, LPC, is an exceptional therapist who has transformed my family's life. As complicated as family dynamics can be, Rebecca's immediate connection with myself and my family members has shown to be beneficial and now we eagerly anticipate our sessions. Rebecca's expertise with clients and families shines through her practical, applicable strategies. She perfectly balances compassion and empathy with actionable guidance, making real differences in challenging and complex situations. Her flexible practice offering in-office and tele-health options accommodates our busy schedule, while her responsiveness and willingness to collaborate with other people and professionals demonstrates her dedication to this kind of work. For anyone seeking support for children, teens, or young adults, Rebecca Ziskind provides truly life-changing therapeutic care. Highest recommendation possible."
+    }
   ]
 }</script>
 <script type="application/ld+json">{
@@ -126,6 +187,62 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     "query-input": "required name=search_term_string"
   }
 }</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who do you work with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Children (elementary school age), teenagers, young adults, and families."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What issues do you help with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Big emotions, self-esteem, depression, anxiety, coming-of-age issues, college application stress, dating & relationships, breakups, self-confidence, and complex family dynamics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer in-person and telehealth sessions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, both in-office and telehealth options are available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where are you located?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "79A Norwich Ave, Colchester, CT 06415"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are your hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monday, Tuesday, Thursday: 9 AM – 7 PM. Wednesday, Friday: 9 AM – 6 PM. Sunday: 9 AM – 5 PM. Saturday: Closed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I get in touch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Call or text: (860) 266-6358"
+      }
+    }
+  ]
+}
+</script>
 <!-- KORA_GOOGLE_FONTS_START -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -317,11 +434,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 </div>
 </section>
-<section aria-labelledby="team-preview-heading" class="section-padding bg-secondary">
+<section aria-labelledby="team-heading" class="section-padding bg-secondary">
 <div class="section-inner">
 <div class="fade-in max-w-2xl mb-10">
 <p class="section-eyebrow">Our clinicians</p>
-<h2 class="section-title" id="team-preview-heading">Meet the team</h2>
+<h2 class="section-title" id="team-heading">Meet the team</h2>
 <p class="section-lead">Licensed clinicians who specialize in children, teens, and families—bringing warmth, play-based expertise, and clinical integrity to every session.</p>
 </div>
 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -367,7 +484,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <p class="section-lead mx-auto">Real Google reviews from individuals, parents, and colleagues who have experienced our compassionate, specialized care firsthand.</p>
 </div>
 <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
-<article class="fade-in testimonial-card">
+<article class="fade-in review testimonial-card">
 <div aria-label="5 out of 5 stars" class="testimonial-stars">
 <svg aria-hidden="true" class="icon icon-sm" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
 <svg aria-hidden="true" class="icon icon-sm" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
@@ -383,7 +500,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span class="testimonial-author__badge">Google Review</span>
 </div>
 </article>
-<article class="fade-in testimonial-card">
+<article class="fade-in review testimonial-card">
 <div aria-label="5 out of 5 stars" class="testimonial-stars">
 <svg aria-hidden="true" class="icon icon-sm" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
 <svg aria-hidden="true" class="icon icon-sm" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
@@ -399,7 +516,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span class="testimonial-author__badge">Google Review</span>
 </div>
 </article>
-<article class="fade-in testimonial-card">
+<article class="fade-in review testimonial-card">
 <div aria-label="5 out of 5 stars" class="testimonial-stars">
 <svg aria-hidden="true" class="icon icon-sm" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
 <svg aria-hidden="true" class="icon icon-sm" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
@@ -415,7 +532,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span class="testimonial-author__badge">Google Review</span>
 </div>
 </article>
-<article class="fade-in testimonial-card">
+<article class="fade-in review testimonial-card">
 <div aria-label="5 out of 5 stars" class="testimonial-stars">
 <svg aria-hidden="true" class="icon icon-sm" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
 <svg aria-hidden="true" class="icon icon-sm" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
