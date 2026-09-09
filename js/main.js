@@ -166,14 +166,18 @@ function initFadeIn() {
 }
 
 function setFormStatus(form, text, kind) {
-  const statusEl = form.querySelector('.form-status');
+  const statusEl = form.querySelector('.form-status, .home-form-status');
   if (!statusEl) return;
   statusEl.textContent = text;
   statusEl.classList.toggle('is-visible', Boolean(text));
-  statusEl.classList.remove('form-status--error', 'form-status--success', 'form-status--neutral');
-  if (kind === 'error') statusEl.classList.add('form-status--error');
-  else if (kind === 'success') statusEl.classList.add('form-status--success');
-  else if (kind) statusEl.classList.add('form-status--neutral');
+  statusEl.classList.remove('form-status--error', 'form-status--success', 'form-status--neutral', 'error');
+  if (kind === 'error') {
+    statusEl.classList.add('form-status--error', 'error');
+  } else if (kind === 'success') {
+    statusEl.classList.add('form-status--success');
+  } else if (kind) {
+    statusEl.classList.add('form-status--neutral');
+  }
 }
 
 function setSubmittingState(form, isSubmitting, busyLabel) {
@@ -281,109 +285,113 @@ function resetRecaptcha(form) {
  * Requires reCAPTCHA v2 token (captcha_token) + business_id matching the Kora site.
  */
 function initContactForm() {
-  const form = document.getElementById('contact-form');
-  if (!form || form.dataset.bound) return;
-  form.dataset.bound = 'true';
+  const forms = document.querySelectorAll('#contact-form, #home-contact-form');
+  forms.forEach((form) => {
+    if (form.dataset.bound) return;
+    form.dataset.bound = 'true';
 
-  const config = window.KORA_SITE_CONFIG || {};
-  const apiBaseUrl = (config.apiBaseUrl || '').replace(/\/+$/, '');
-  const businessId = config.businessId || '';
-  const recaptchaSiteKey = (config.recaptchaSiteKey || '').trim();
-  const recaptchaEl = form.querySelector('.g-recaptcha');
-
-  if (recaptchaEl && recaptchaSiteKey) {
-    recaptchaEl.setAttribute('data-sitekey', recaptchaSiteKey);
-    makeRecaptchaResponsive(recaptchaEl);
-    form.addEventListener(
-      'focusin',
-      () => {
-        ensureRecaptchaScript(recaptchaSiteKey).catch(() => {
-          setFormStatus(form, 'Security check failed to load. Please refresh and try again.', 'error');
-        });
-      },
-      { once: true }
-    );
-  } else if (recaptchaEl && !recaptchaSiteKey) {
-    recaptchaEl.style.display = 'none';
-  }
-
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const firstName = ((form.querySelector('[name="first_name"]') || {}).value || '').trim();
-    const lastName = ((form.querySelector('[name="last_name"]') || {}).value || '').trim();
-    const email = ((form.querySelector('[name="email"]') || {}).value || '').trim();
-    const message = ((form.querySelector('[name="message"]') || {}).value || '').trim();
-    const name =
-      ((form.querySelector('[name="name"]') || {}).value || '').trim() ||
-      `${firstName} ${lastName}`.trim() ||
-      firstName ||
-      lastName;
-
-    if (!name || !email || !message) {
-      setFormStatus(form, 'Please fill in your name, email, and message.', 'error');
-      return;
-    }
-
-    if (!businessId || !apiBaseUrl) {
-      setFormStatus(form, 'Form submission is not configured for this site.', 'error');
-      return;
-    }
-
-    if (recaptchaEl && !recaptchaSiteKey) {
-      setFormStatus(form, 'Form temporarily unavailable.', 'error');
-      return;
-    }
+    const config = window.KORA_SITE_CONFIG || {};
+    const apiBaseUrl = (config.apiBaseUrl || '').replace(/\/+$/, '');
+    const businessId = config.businessId || '';
+    const recaptchaSiteKey = (config.recaptchaSiteKey || '').trim();
+    const recaptchaEl = form.querySelector('.g-recaptcha');
 
     if (recaptchaEl && recaptchaSiteKey) {
-      try {
-        await ensureRecaptchaScript(recaptchaSiteKey);
-      } catch {
-        setFormStatus(form, 'Security check failed to load. Please refresh and try again.', 'error');
+      recaptchaEl.setAttribute('data-sitekey', recaptchaSiteKey);
+      makeRecaptchaResponsive(recaptchaEl);
+      form.addEventListener(
+        'focusin',
+        () => {
+          ensureRecaptchaScript(recaptchaSiteKey).catch(() => {
+            setFormStatus(form, 'Security check failed to load. Please refresh and try again.', 'error');
+          });
+        },
+        { once: true }
+      );
+    } else if (recaptchaEl && !recaptchaSiteKey) {
+      recaptchaEl.style.display = 'none';
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const firstName = ((form.querySelector('[name="first_name"]') || {}).value || '').trim();
+      const lastName = ((form.querySelector('[name="last_name"]') || {}).value || '').trim();
+      const email = ((form.querySelector('[name="email"]') || {}).value || '').trim();
+      const phone = ((form.querySelector('[name="phone"]') || {}).value || '').trim();
+      const message = ((form.querySelector('[name="message"]') || {}).value || '').trim();
+      const name =
+        ((form.querySelector('[name="name"]') || {}).value || '').trim() ||
+        `${firstName} ${lastName}`.trim() ||
+        firstName ||
+        lastName;
+
+      if (!name || !email || !message) {
+        setFormStatus(form, 'Please fill in all required fields.', 'error');
         return;
       }
+
+      if (!businessId || !apiBaseUrl) {
+        setFormStatus(form, 'Form submission is not configured for this site.', 'error');
+        return;
+      }
+
+      if (recaptchaEl && !recaptchaSiteKey) {
+        setFormStatus(form, 'Form temporarily unavailable.', 'error');
+        return;
+      }
+
+      if (recaptchaEl && recaptchaSiteKey) {
+        try {
+          await ensureRecaptchaScript(recaptchaSiteKey);
+        } catch {
+          setFormStatus(form, 'Security check failed to load. Please refresh and try again.', 'error');
+          return;
+        }
+        const captchaToken = getRecaptchaToken(form);
+        if (!captchaToken) {
+          setFormStatus(form, 'Please complete the security check.', 'error');
+          return;
+        }
+      }
+
       const captchaToken = getRecaptchaToken(form);
-      if (!captchaToken) {
-        setFormStatus(form, 'Please complete the security check.', 'error');
-        return;
-      }
-    }
+      setSubmittingState(form, true, 'Sending...');
+      setFormStatus(form, 'Sending...', 'neutral');
 
-    const captchaToken = getRecaptchaToken(form);
-    setSubmittingState(form, true, 'Sending...');
-    setFormStatus(form, 'Sending...', 'neutral');
-
-    try {
-      const response = await fetch(`${apiBaseUrl}/api/v1/public/forms/submit`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          business_id: businessId,
-          form_type: 'contact',
-          form_data: {
-            name,
-            email,
-            message,
-            first_name: firstName || undefined,
-            last_name: lastName || undefined,
-          },
-          submitter_email: email,
-          captcha_token: captchaToken || '',
-        }),
-      });
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok) {
-        throw new Error(parseApiError(data, 'Something went wrong. Please try again or call us.'));
+      try {
+        const response = await fetch(`${apiBaseUrl}/api/v1/public/forms/submit`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            business_id: businessId,
+            form_type: 'contact',
+            form_data: {
+              name,
+              email,
+              phone: phone || undefined,
+              message,
+              first_name: firstName || undefined,
+              last_name: lastName || undefined,
+            },
+            submitter_email: email,
+            captcha_token: captchaToken || '',
+          }),
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          throw new Error(parseApiError(data, 'Something went wrong. Please try again or call us.'));
+        }
+        form.reset();
+        resetRecaptcha(form);
+        setFormStatus(form, data.message || 'Thank you! Your message has been received.', 'success');
+      } catch (error) {
+        resetRecaptcha(form);
+        setFormStatus(form, error.message || 'Something went wrong. Please try again or call us.', 'error');
+      } finally {
+        setSubmittingState(form, false);
       }
-      form.reset();
-      resetRecaptcha(form);
-      setFormStatus(form, data.message || 'Thank you! Your message has been received.', 'success');
-    } catch (error) {
-      resetRecaptcha(form);
-      setFormStatus(form, error.message || 'Something went wrong. Please try again or call us.', 'error');
-    } finally {
-      setSubmittingState(form, false);
-    }
+    });
   });
 }
 

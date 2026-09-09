@@ -265,7 +265,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap"></noscript>
 <!-- KORA_GOOGLE_FONTS_END -->
-<link href="https://rztherapysolutions.com" rel="canonical"/><meta content="https://rztherapysolutions.com" property="og:url"/>
+<link href="https://rztherapysolutions.com" rel="canonical"><meta content="https://rztherapysolutions.com" property="og:url"/>
 
 </link></link><!-- KORA_FAVICON_START -->
 <link href="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/23dcfa31-7f3c-4bb3-9e20-6efd0b39302b/de8c94d8-887e-4625-825f-ec262dbc28df/1785749225_0rnelf.png" rel="icon" type="image/png"/>
@@ -660,10 +660,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <label for="hf_message">Message *</label>
 <textarea id="hf_message" name="message" placeholder="Tell us a bit about what you're looking for…" required="" rows="5" style="background:#ffffff;color:#1a2f3a;"></textarea>
 </div>
-<div class="g-recaptcha-scale"><div class="g-recaptcha"></div></div>
+<div class="g-recaptcha"></div>
 <div class="home-form-actions">
 <button class="btn-accent px-8 py-3 text-sm font-semibold uppercase tracking-wide" style="min-width:180px;" type="submit">Submit</button>
-<p aria-live="polite" class="home-form-status" id="home-form-status" role="status"></p>
+<p aria-live="polite" class="home-form-status form-status" id="home-form-status" role="status"></p>
 </div>
 </form>
 </div>
@@ -833,6 +833,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   border-color: #9fd07a;
   box-shadow: 0 0 0 3px rgba(159,208,122,0.20);
 }
+.g-recaptcha {
+  min-height: 78px;
+  margin-top: 0.25rem;
+}
 .home-checkbox-group {
   display: flex;
   flex-direction: column;
@@ -870,105 +874,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   margin-top: 2rem;
 }
 </style>
-<script>
-(function () {
-  var form = document.getElementById('home-contact-form');
-  if (!form) return;
-
-  var config = window.KORA_SITE_CONFIG || {};
-  var apiBaseUrl = (config.apiBaseUrl || '').replace(/\/+$/, '');
-  var businessId = config.businessId || '';
-  var siteKey = (config.recaptchaSiteKey || '').trim();
-
-  // Set up reCAPTCHA
-  var recaptchaEl = form.querySelector('.g-recaptcha');
-  if (recaptchaEl && siteKey) {
-    recaptchaEl.setAttribute('data-sitekey', siteKey);
-    form.addEventListener('focusin', function () {
-      if (typeof window.grecaptcha !== 'undefined') return;
-      var s = document.createElement('script');
-      s.src = 'https://www.google.com/recaptcha/api.js';
-      s.async = true; s.defer = true;
-      document.head.appendChild(s);
-    }, { once: true });
-  }
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var status = document.getElementById('home-form-status');
-    var submitBtn = form.querySelector('[type="submit"]');
-
-    var firstName = form.querySelector('[name="first_name"]').value.trim();
-    var lastName  = form.querySelector('[name="last_name"]').value.trim();
-    var email     = form.querySelector('[name="email"]').value.trim();
-    var message   = form.querySelector('[name="message"]').value.trim();
-    if (!firstName || !lastName || !email || !message) {
-      status.textContent = 'Please fill in all required fields.';
-      status.className = 'home-form-status error';
-      return;
-    }
-
-    var captchaToken = '';
-    if (recaptchaEl && siteKey) {
-      if (typeof window.grecaptcha === 'undefined') {
-        status.textContent = 'Security check is still loading. Please try again in a moment.';
-        status.className = 'home-form-status error';
-        return;
-      }
-      captchaToken = window.grecaptcha.getResponse() || '';
-      if (!captchaToken) {
-        status.textContent = 'Please complete the security check.';
-        status.className = 'home-form-status error';
-        return;
-      }
-    }
-
-    submitBtn.disabled = true;
-    status.textContent = 'Sending…';
-    status.className = 'home-form-status';
-
-    fetch(apiBaseUrl + '/api/v1/public/forms/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({
-        business_id: businessId,
-        form_type: 'contact',
-        form_data: {
-          name: firstName + ' ' + lastName,
-          first_name: firstName,
-          last_name: lastName,
-          email: email,
-          phone: form.querySelector('[name="phone"]').value.trim(),
-
-          message: message
-        },
-        submitter_email: email,
-        captcha_token: captchaToken
-      })
-    })
-    .then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
-    .then(function (result) {
-      if (result.ok) {
-        status.textContent = result.data.message || 'Thank you! We\'ll be in touch soon.';
-        status.className = 'home-form-status';
-        form.reset();
-      } else {
-        var msg = (result.data && result.data.detail) || 'Something went wrong. Please call us at (860) 266-6358.';
-        status.textContent = typeof msg === 'string' ? msg : 'Something went wrong. Please call us at (860) 266-6358.';
-        status.className = 'home-form-status error';
-      }
-      if (typeof window.grecaptcha !== 'undefined' && recaptchaEl) window.grecaptcha.reset();
-      submitBtn.disabled = false;
-    })
-    .catch(function () {
-      status.textContent = 'Something went wrong. Please call us at (860) 266-6358.';
-      status.className = 'home-form-status error';
-      if (typeof window.grecaptcha !== 'undefined' && recaptchaEl) window.grecaptcha.reset();
-      submitBtn.disabled = false;
-    });
-  });
-}());
-</script>
 </main>
 <footer class="site-footer">
 <div class="footer-grid">
