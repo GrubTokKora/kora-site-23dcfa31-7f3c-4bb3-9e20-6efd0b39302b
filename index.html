@@ -56,6 +56,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   ],
   "name": "RZ Therapy Solutions PLLC",
   "alternateName": "RZ Therapy Solutions",
+  "url": "https://rztherapysolutions.com",
   "description": "Specialized, trauma-informed therapy for children and teens in Colchester, Connecticut, using CCPT, PCIT, CPP, CBT, and the ARC model. Family counseling and pregnancy, postpartum, and parenting support also available. In-person and virtual care throughout CT.",
   "telephone": "+1-860-266-6358",
   "email": "admin@rztherapysolutions.com",
@@ -97,19 +98,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "sameAs": [
     "https://www.psychologytoday.com/profile/930087"
   ],
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "description": "By appointment"
-  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Thursday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Wednesday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  ],
   "medicalSpecialty": [
     "Counseling",
     "Psychotherapy"
@@ -176,17 +184,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
   ]
 }</script>
-<script type="application/ld+json">{
+<script type="application/ld+json">
+{
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "RZ Therapy Solutions",
-  "publisher": {},
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://www.rztherapysolutions.com/blog?q={search_term_string}",
-    "query-input": "required name=search_term_string"
+  "url": "https://rztherapysolutions.com",
+  "publisher": {
+    "@type": "Organization",
+    "name": "RZ Therapy Solutions PLLC",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/23dcfa31-7f3c-4bb3-9e20-6efd0b39302b/de8c94d8-887e-4625-825f-ec262dbc28df/1785749225_0rnelf.png"
+    }
   }
-}</script>
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
