@@ -3,10 +3,10 @@ Structure and the names of what each page offers. Values that change often — p
 address — and body copy are deliberately not recorded here; read the page itself for those.
 
 ## index.html → /
-title: RZ Therapy Solutions PLLC
+title: RZ Therapy Solutions PLLC | Child Therapist in Colchester CT
 purpose: The landing page — the practice's mission, how it works, the challenges it treats, the team, and a consultation form.
 sections:
-- `#main-content` "A place where children and teens feel understood, safe, and ready to grow." — the page body, holding the hero and every section below it
+- `#main-content` "A place where children and teens feel understood, safe, and ready to grow." — the page body, holding the hero and every section below it (visible hero headline is a `p.hero__brand`; crawlable SEO H1 is `sr-only`: "Child therapist in Colchester CT…")
 - `#mission-heading` "Specialized therapy for children, teens, and their families" — the mission block, naming: trauma-informed, neurodiversity-affirming, in-person, telehealth, pregnancy, postpartum, parenting
 - `#approach-heading` "How we support children and families" — the four principles: Trauma-informed, Neurodiversity-affirming, Person-centered, Developmentally Adaptive
 - `#help-heading` "Challenges we help children & teens with" — the presenting concerns treated: Anxiety & worry, ADHD, Emotion regulation, Trauma & adverse experiences, School stress & avoidance, Self-esteem & identity, Pregnancy, postpartum & parenting
