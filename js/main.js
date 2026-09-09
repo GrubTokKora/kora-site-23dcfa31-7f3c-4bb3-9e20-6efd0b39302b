@@ -295,6 +295,25 @@ function initContactForm() {
     const businessId = config.businessId || '';
     const recaptchaSiteKey = (config.recaptchaSiteKey || '').trim();
     const recaptchaEl = form.querySelector('.g-recaptcha');
+    const recaptchaContainer = form.querySelector('.home-recaptcha-container');
+
+    const revealRecaptcha = () => {
+      form.classList.add('is-focused');
+      if (recaptchaContainer) {
+        recaptchaContainer.style.display = 'block';
+      }
+      if (recaptchaEl) {
+        scaleRecaptcha(recaptchaEl);
+      }
+    };
+
+    if (recaptchaContainer) {
+      form.addEventListener('focusin', (e) => {
+        if (e.target && e.target.matches('input, textarea, select')) {
+          revealRecaptcha();
+        }
+      });
+    }
 
     if (recaptchaEl && recaptchaSiteKey) {
       recaptchaEl.setAttribute('data-sitekey', recaptchaSiteKey);
@@ -302,6 +321,7 @@ function initContactForm() {
       form.addEventListener(
         'focusin',
         () => {
+          revealRecaptcha();
           ensureRecaptchaScript(recaptchaSiteKey).catch(() => {
             setFormStatus(form, 'Security check failed to load. Please refresh and try again.', 'error');
           });
@@ -310,10 +330,12 @@ function initContactForm() {
       );
     } else if (recaptchaEl && !recaptchaSiteKey) {
       recaptchaEl.style.display = 'none';
+      if (recaptchaContainer) recaptchaContainer.style.display = 'none';
     }
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
+      revealRecaptcha();
 
       const firstName = ((form.querySelector('[name="first_name"]') || {}).value || '').trim();
       const lastName = ((form.querySelector('[name="last_name"]') || {}).value || '').trim();

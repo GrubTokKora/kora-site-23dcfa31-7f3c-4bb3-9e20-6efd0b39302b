@@ -265,7 +265,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap"></noscript>
 <!-- KORA_GOOGLE_FONTS_END -->
-<link href="https://rztherapysolutions.com" rel="canonical"><meta content="https://rztherapysolutions.com" property="og:url"/>
+<link href="https://rztherapysolutions.com" rel="canonical"/><meta content="https://rztherapysolutions.com" property="og:url"/>
 
 </link></link><!-- KORA_FAVICON_START -->
 <link href="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/23dcfa31-7f3c-4bb3-9e20-6efd0b39302b/de8c94d8-887e-4625-825f-ec262dbc28df/1785749225_0rnelf.png" rel="icon" type="image/png"/>
@@ -660,7 +660,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <label for="hf_message">Message *</label>
 <textarea id="hf_message" name="message" placeholder="Tell us a bit about what you're looking for…" required="" rows="5" style="background:#ffffff;color:#1a2f3a;"></textarea>
 </div>
+<div class="home-recaptcha-container" id="home-recaptcha-container">
 <div class="g-recaptcha"></div>
+</div>
 <div class="home-form-actions">
 <button class="btn-accent px-8 py-3 text-sm font-semibold uppercase tracking-wide" style="min-width:180px;" type="submit">Submit</button>
 <p aria-live="polite" class="home-form-status form-status" id="home-form-status" role="status"></p>
@@ -832,6 +834,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   outline: none;
   border-color: #9fd07a;
   box-shadow: 0 0 0 3px rgba(159,208,122,0.20);
+}
+.home-recaptcha-container {
+  display: none;
+}
+.home-consult-form.is-focused .home-recaptcha-container,
+.home-consult-form:focus-within .home-recaptcha-container {
+  display: block;
 }
 .g-recaptcha {
   min-height: 78px;
