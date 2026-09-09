@@ -13,3 +13,16 @@
   --font-heading: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   --font-body: "Source Sans 3", system-ui, sans-serif;
 }
+
+/* Drawer-style FAQ Accordion Animation */
+.faq-item__panel {
+  overflow: hidden;
+  transition: height 450ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: height;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-item__panel {
+    transition: none !important;
+  }
+}

@@ -545,8 +545,11 @@ function initAccordion() {
     }
 
     const currentHeight = panel.getBoundingClientRect().height;
+    panel.style.overflow = 'hidden';
+    panel.style.transition = 'none';
     panel.style.height = `${currentHeight}px`;
     void panel.offsetHeight;
+    panel.style.transition = 'height 450ms cubic-bezier(0.4, 0, 0.2, 1)';
     panel.style.height = '0px';
 
     const onEnd = (e) => {
@@ -556,6 +559,8 @@ function initAccordion() {
       if (!item.classList.contains('is-open')) {
         panel.hidden = true;
         panel.style.height = '';
+        panel.style.overflow = '';
+        panel.style.transition = '';
       }
     };
     panel._accordionEnd = onEnd;
@@ -582,10 +587,13 @@ function initAccordion() {
     }
 
     const currentHeight = panel.getBoundingClientRect().height;
+    panel.style.overflow = 'hidden';
+    panel.style.transition = 'none';
     panel.style.height = `${currentHeight}px`;
     void panel.offsetHeight;
 
     const targetHeight = panel.scrollHeight;
+    panel.style.transition = 'height 450ms cubic-bezier(0.4, 0, 0.2, 1)';
     panel.style.height = `${targetHeight}px`;
 
     const onEnd = (e) => {
@@ -594,6 +602,8 @@ function initAccordion() {
       panel._accordionEnd = null;
       if (item.classList.contains('is-open')) {
         panel.style.height = '';
+        panel.style.overflow = '';
+        panel.style.transition = '';
       }
     };
     panel._accordionEnd = onEnd;
