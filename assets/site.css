@@ -1161,7 +1161,7 @@ body.lightbox-open { overflow: hidden; }
   color: var(--color-brand-primary);
   font-style: italic;
 }
-.owner-quote cite {
+.owner-quote__attr {
   display: block;
   margin-top: 0.75rem;
   font-style: normal;
