@@ -3,7 +3,7 @@ Structure and the names of what each page offers. Values that change often — p
 address — and body copy are deliberately not recorded here; read the page itself for those.
 
 ## index.html → /
-title: Child & Teen Therapist Colchester CT | Play Therapy & Family Counseling | RZ Therapy Solutions
+title: RZ Therapy Solutions PLLC
 purpose: The landing page — the practice's mission, how it works, the challenges it treats, the team, and a consultation form.
 sections:
 - `#main-content` "A place where children and teens feel understood, safe, and ready to grow." — the page body, holding the hero and every section below it
