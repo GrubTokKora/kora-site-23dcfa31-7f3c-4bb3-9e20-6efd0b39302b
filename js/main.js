@@ -295,7 +295,7 @@ function initContactForm() {
     const businessId = config.businessId || '';
     const recaptchaSiteKey = (config.recaptchaSiteKey || '').trim();
     const recaptchaEl = form.querySelector('.g-recaptcha');
-    const recaptchaContainer = form.querySelector('.home-recaptcha-container');
+    const recaptchaContainer = form.querySelector('.recaptcha-container, .home-recaptcha-container');
 
     const revealRecaptcha = () => {
       form.classList.add('is-focused');
