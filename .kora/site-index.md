@@ -24,7 +24,7 @@ also: This page's form fields are prefixed `hf_` while contact.html's are not, e
 title: About Our Therapists | Child & Teen Therapy Specialists Colchester CT | RZ Therapy Solutions
 purpose: The team page — a profile for each clinician, with credentials.
 sections:
-- `#main-content` "Rebecca Ziskind, MS, LPC, NCC" — the page body, holding a profile for each clinician: Rebecca Ziskind, Ashlee Cannon, Madison Marcavage, Mackenzie Vigil
+- `#main-content` "Rebecca Ziskind, MS, LPC, NCC" — the page body, holding a profile for each clinician: Rebecca Ziskind, Ashlee Cannon, Madison Marcavage, Mackenzie Vigil, Amy Bace
 - "Schedule a consultation" — the closing call to action
 also: Each clinician's post-nominal letters are part of their heading text rather than a separate field, so a credential change is an edit to the heading a link may point at.
 also: No profile carries an id of its own, so a change to one clinician is located only by their name.
