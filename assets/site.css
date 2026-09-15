@@ -9,10 +9,9 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-size: 1.125rem;
   color: var(--color-brand-dark);
   background-color: var(--color-brand-soft);
-  line-height: 1.75;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   /* Offset fixed header (navbar only on small screens; + top bar on md+) */
   padding-top: 4.5rem;
@@ -417,11 +416,10 @@ img {
   margin: 0 0 1rem;
 }
 .section-lead {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   color: var(--color-brand-muted);
-  max-width: 42rem;
+  max-width: 40rem;
   margin: 0 0 2.5rem;
-  line-height: 1.75;
 }
 
 .bg-soft { background: var(--color-brand-soft); }
@@ -463,8 +461,7 @@ img {
 .approach-item p {
   margin: 0;
   color: var(--color-brand-muted);
-  font-size: 1.0625rem;
-  line-height: 1.7;
+  font-size: 0.95rem;
 }
 
 /* ── Who we help ── */
@@ -487,8 +484,7 @@ img {
 }
 .help-item p {
   margin: 0;
-  font-size: 1.0625rem;
-  line-height: 1.7;
+  font-size: 0.9rem;
   color: var(--color-brand-muted);
 }
 
@@ -1142,8 +1138,7 @@ body.lightbox-open { overflow: hidden; }
 /* ── Prose ── */
 .prose-rz {
   color: var(--color-brand-muted);
-  font-size: 1.125rem;
-  line-height: 1.8;
+  font-size: 1rem;
 }
 .prose-rz p { margin: 0 0 1.15rem; }
 .prose-rz p:last-child { margin-bottom: 0; }
@@ -1158,12 +1153,11 @@ body.lightbox-open { overflow: hidden; }
 /* Quote block */
 .owner-quote {
   position: relative;
-  padding: 1.75rem 0 0;
-  margin-top: 1.75rem;
+  padding: 1.5rem 0 0;
+  margin-top: 1.5rem;
   border-top: 1px solid var(--color-brand-border);
   font-family: var(--font-heading);
-  font-size: 1.35rem;
-  line-height: 1.55;
+  font-size: 1.15rem;
   color: var(--color-brand-primary);
   font-style: italic;
 }
@@ -1172,7 +1166,7 @@ body.lightbox-open { overflow: hidden; }
   margin-top: 0.75rem;
   font-style: normal;
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-brand-muted);
