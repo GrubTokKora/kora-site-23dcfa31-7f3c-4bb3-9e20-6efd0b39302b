@@ -1,26 +1,35 @@
 # RZ Therapy Solutions
 
-> Therapy That Meets You Where You're At — a therapy practice in Colchester, CT.
+> RZ Therapy Solutions — Therapy That Meets You Where You're At
 
 ## Location & Contact
 - Address: 79A Norwich Ave, Colchester, CT 06415, United States
-- Phone: (860) 266-6358
+- Phone: +18602666358
 - Email: admin@rztherapysolutions.com
 - Website: https://rztherapysolutions.com
 
 ## Hours
-- Monday–Friday: 9:00 AM – 8:00 PM
+- Monday: 9 AM – 8:00 PM
+- Tuesday: 9 AM – 8:00 PM
+- Wednesday: 9 AM – 8:00 PM
+- Thursday: 9 AM – 8:00 PM
+- Friday: 9 AM – 8:00 PM
 - Saturday: Closed
-- Sunday: 9:00 AM – 5:00 PM
+- Sunday: 9 AM – 5:00 PM
 
 ## Pages
-- [Home](https://rztherapysolutions.com/): Overview
-- [About Us](https://rztherapysolutions.com/about-us): Practice background and approach
-- [Who We Help](https://rztherapysolutions.com/who-we-help): Populations and specialties served
-- [Information](https://rztherapysolutions.com/information): Policies and what to expect
-- [Blog](https://rztherapysolutions.com/blog): Articles on anxiety, teen therapy, and trauma
-- [Contact](https://rztherapysolutions.com/contact): Get in touch
+- [RZ Therapy Solutions PLLC | Child Therapist in Colchester CT](https://rztherapysolutions.com/)
+- [About Us](https://rztherapysolutions.com/about-us)
+- [Adult Anxiety Counseling Colchester CT | Depression Therapy](https://rztherapysolutions.com/blog-anxiety-adults)
+- [Why Teens Need Therapy | Adolescent Counseling Colchester CT](https://rztherapysolutions.com/blog-teen-reasons)
+- [Why Start Teen Therapy in Colchester, Connecticut?](https://rztherapysolutions.com/blog-teen-therapy)
+- [Trauma &amp; PTSD Therapy Colchester CT | Individual Counseling | RZ T](https://rztherapysolutions.com/blog-trauma-ptsd)
+- [Blog](https://rztherapysolutions.com/blog)
+- [Get in touch](https://rztherapysolutions.com/contact)
+- [Insurance &amp; Fees](https://rztherapysolutions.com/information)
+- [Privacy Policy](https://rztherapysolutions.com/privacy-policy)
+- [Child Therapy, Teen Therapy &amp; Family Therapy in Colchester, CT](https://rztherapysolutions.com/who-we-help)
 
-## Scheduling
-- [Contact / schedule](https://www.rztherapysolutions.com/contact)
-- [Book a consultation](https://docs.google.com/forms/d/e/1FAIpQLSfF6zuo5ClGjlwm2CaCrw7qUr3ugqIcCNRwfdNCmj_59zuRsg/viewform)
+## Action Links
+- [Reserve a Table](https://www.rztherapysolutions.com/contact)
+- [Book a Consultation](https://docs.google.com/forms/d/e/1FAIpQLSfF6zuo5ClGjlwm2CaCrw7qUr3ugqIcCNRwfdNCmj_59zuRsg/viewform)
