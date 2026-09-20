@@ -696,3 +696,37 @@ function boot() {
 }
 
 document.addEventListener('DOMContentLoaded', boot);
+
+/* ── Team carousel dots (mobile only) ── */
+(function () {
+  var track = document.getElementById('team-carousel') && document.querySelector('.team-carousel__track');
+  var dotsWrap = document.getElementById('team-dots');
+  if (!track || !dotsWrap) return;
+
+  var slides = track.querySelectorAll('.team-carousel__slide');
+  if (slides.length < 2) return;
+
+  slides.forEach(function (_, i) {
+    var dot = document.createElement('button');
+    dot.className = 'team-carousel__dot' + (i === 0 ? ' is-active' : '');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.addEventListener('click', function () {
+      slides[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    });
+    dotsWrap.appendChild(dot);
+  });
+
+  var dots = dotsWrap.querySelectorAll('.team-carousel__dot');
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var idx = Array.prototype.indexOf.call(slides, entry.target);
+        dots.forEach(function (d, j) {
+          d.classList.toggle('is-active', j === idx);
+        });
+      }
+    });
+  }, { root: track, threshold: 0.6 });
+
+  slides.forEach(function (s) { observer.observe(s); });
+})();
