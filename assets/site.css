@@ -1314,6 +1314,13 @@ body.lightbox-open { overflow: hidden; }
   font-family: var(--font-body);
   font-weight: 500;
 }
+.challenge-item__desc {
+  margin: 0.75rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-brand-dark);
+  opacity: 0.85;
+}
 
 /* FAQ accordion */
 .faq-accordion {
