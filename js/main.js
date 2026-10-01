@@ -4,6 +4,22 @@ window.KORA_SITE_CONFIG = {
   recaptchaSiteKey: '6LcsdJYsAAAAAAur-h7cYlZuGJTmijNHmOi5kFH7',
 };
 
+/** Highlight current page in the shared shell nav (data-page on <body> ↔ data-nav on links). */
+function initActiveNav() {
+  const page = document.body && document.body.getAttribute('data-page');
+  if (!page) return;
+
+  document.querySelectorAll('[data-nav]').forEach((el) => {
+    const isCurrent = el.getAttribute('data-nav') === page;
+    el.classList.toggle('is-active', isCurrent);
+    if (isCurrent) {
+      el.setAttribute('aria-current', 'page');
+    } else {
+      el.removeAttribute('aria-current');
+    }
+  });
+}
+
 function initMobileMenu() {
   const menuBtn = document.getElementById('mobile-menu-btn');
   const closeBtn = document.getElementById('close-menu-btn');
@@ -686,6 +702,7 @@ function initAccordion() {
 }
 
 function boot() {
+  initActiveNav();
   initMobileMenu();
   initNavbarScroll();
   initHeaderLayout();
