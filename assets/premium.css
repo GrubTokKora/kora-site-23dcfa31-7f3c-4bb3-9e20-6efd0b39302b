@@ -18,11 +18,11 @@ html{scroll-padding-top:7rem}
 body{
   background:var(--rz-cream);
   color:var(--rz-ink);
-  font-family:"Source Sans 3",system-ui,sans-serif;
+  font-family:var(--kora-font-body, "Source Sans 3"), system-ui,sans-serif;
   letter-spacing:.005em;
 }
 h1,h2,h3,h4,.font-heading{
-  font-family:"Cormorant Garamond",Georgia,serif;
+  font-family:var(--kora-font-heading, "Cormorant Garamond"), Georgia,serif;
   color:var(--rz-deep);
   letter-spacing:-.015em;
 }

@@ -10,8 +10,9 @@
   --color-brand-muted: #4a5c66;
   --color-brand-soft: #f7f3ee;
   --color-brand-border: #c9bbaa;
-  --font-heading: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --font-body: "Source Sans 3", system-ui, sans-serif;
+  --font-heading: var(--kora-font-heading, "Cormorant Garamond"), Georgia, "Times New Roman", serif;
+  --font-body: var(--kora-font-body, "Source Sans 3"), system-ui, sans-serif;
+  --font-accent: var(--kora-font-accent, var(--font-heading)), var(--font-heading);
 }
 
 /* Drawer-style FAQ Accordion Animation */
